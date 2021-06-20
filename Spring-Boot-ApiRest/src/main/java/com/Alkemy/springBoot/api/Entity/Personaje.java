@@ -22,7 +22,7 @@ public class Personaje implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+	//atributos de mapeo
 	
 	private String imagen;
 	private String nombre;
