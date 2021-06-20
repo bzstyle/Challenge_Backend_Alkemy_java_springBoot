@@ -12,9 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "personajes")
 public class Personaje implements Serializable {
-	
 
-	 
 	
 	private static final long serialVersionUID = 1L;
 
@@ -22,7 +20,7 @@ public class Personaje implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	//atributos de mapeo
+
 	
 	private String imagen;
 	private String nombre;
