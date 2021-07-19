@@ -1,4 +1,4 @@
-package com.Alkemy.springBoot.api.Controller;
+package com.Alkemy.springBoot.api.controller;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Alkemy.springBoot.api.Entity.Personaje;
-import com.Alkemy.springBoot.api.Service.IntPersonajeService;
+import com.Alkemy.springBoot.api.model.Personaje;
+import com.Alkemy.springBoot.api.service.Interface.IntPersonajeService;
 
 @RestController
 @RequestMapping("/api")

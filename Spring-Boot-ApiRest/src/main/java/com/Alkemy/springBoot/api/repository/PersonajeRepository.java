@@ -1,11 +1,11 @@
-package com.Alkemy.springBoot.api.Repository;
+package com.Alkemy.springBoot.api.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.Alkemy.springBoot.api.Entity.Personaje;
+import com.Alkemy.springBoot.api.model.Personaje;
 
 @Repository
 public interface PersonajeRepository extends JpaRepository<Personaje, Long> {

@@ -1,8 +1,8 @@
-package com.Alkemy.springBoot.api.Service;
+package com.Alkemy.springBoot.api.service.Interface;
 
 import java.util.List;
 
-import com.Alkemy.springBoot.api.Entity.Personaje;
+import com.Alkemy.springBoot.api.model.Personaje;
 
 
 public interface IntPersonajeService {

@@ -1,16 +1,17 @@
-package com.Alkemy.springBoot.api.Service;
+package com.Alkemy.springBoot.api.service.impl;
 
 import java.util.List;
 
+import com.Alkemy.springBoot.api.service.Interface.IntPersonajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.Alkemy.springBoot.api.Entity.Personaje;
-import com.Alkemy.springBoot.api.Repository.PersonajeRepository;
+import com.Alkemy.springBoot.api.model.Personaje;
+import com.Alkemy.springBoot.api.repository.PersonajeRepository;
 
 @Service
-public class PersonajeService implements IntPersonajeService{
+public class PersonajeService implements IntPersonajeService {
 	
 	@Autowired
 	private PersonajeRepository personajeDao;

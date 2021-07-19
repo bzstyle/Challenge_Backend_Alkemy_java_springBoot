@@ -1,4 +1,4 @@
-package com.Alkemy.springBoot.api.Entity;
+package com.Alkemy.springBoot.api.model;
 
 import java.io.Serializable;
 
