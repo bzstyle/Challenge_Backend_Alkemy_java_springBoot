@@ -1,4 +1,4 @@
-package com.Alkemy.springBoot.api.Enum;
+package com.Alkemy.springBoot.api.security.enums;
 
 public enum ERole {
     ROLE_USER,
