@@ -2,6 +2,7 @@ package com.Alkemy.springBoot.api.security;
 
 //Genera token , valida que no este mal formado ni expirado.
 
+import com.Alkemy.springBoot.api.security.model.UserDetailClass;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

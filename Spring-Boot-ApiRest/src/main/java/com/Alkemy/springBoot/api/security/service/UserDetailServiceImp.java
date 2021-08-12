@@ -1,6 +1,6 @@
 package com.Alkemy.springBoot.api.security.service;
 
-import com.Alkemy.springBoot.api.security.UserDetailClass;
+import com.Alkemy.springBoot.api.security.model.UserDetailClass;
 import com.Alkemy.springBoot.api.security.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

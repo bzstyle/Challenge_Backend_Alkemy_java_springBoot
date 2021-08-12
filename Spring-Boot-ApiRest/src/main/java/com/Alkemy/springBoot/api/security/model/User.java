@@ -58,4 +58,7 @@ public class User implements Serializable {
 
     private Boolean deleted = Boolean.FALSE;
 
+    public User(String firstName, String lastName, String email, String encode) {   // aa revisarr
+
+    }
 }
