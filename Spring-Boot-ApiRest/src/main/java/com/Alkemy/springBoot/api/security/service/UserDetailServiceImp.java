@@ -1,7 +1,7 @@
 package com.Alkemy.springBoot.api.security.service;
 
 import com.Alkemy.springBoot.api.security.model.UserDetailClass;
-import com.Alkemy.springBoot.api.security.model.User;
+import com.Alkemy.springBoot.api.security.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,7 +16,7 @@ public class UserDetailServiceImp implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.getByFirstName(username).get();
+        Usuario user = userService.getByUserName(username).get();
         return UserDetailClass.build(user);
     }
 }

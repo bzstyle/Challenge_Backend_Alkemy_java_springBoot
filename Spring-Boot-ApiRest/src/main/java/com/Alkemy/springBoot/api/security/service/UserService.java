@@ -1,6 +1,6 @@
 package com.Alkemy.springBoot.api.security.service;
 
-import com.Alkemy.springBoot.api.security.model.User;
+import com.Alkemy.springBoot.api.security.model.Usuario;
 import com.Alkemy.springBoot.api.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,19 +15,19 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public Optional<User> getByFirstName(String firstName){
-        return userRepository.findByFirstName(firstName);
+    public Optional<Usuario> getByUserName(String userName){
+        return userRepository.findByUserName(userName);
     }
 
-    public boolean existsByFirstName(String firstName){
-        return userRepository.existsByFirstName(firstName);
+    public boolean existsByUserName(String userName){
+        return userRepository.existsByUserName(userName);
     }
 
     public boolean existsByEmail(String email){
         return userRepository.existsByEmail(email);
     }
 
-    public void save(User user){
+    public void save(Usuario user){
         userRepository.save(user);
     }
 }

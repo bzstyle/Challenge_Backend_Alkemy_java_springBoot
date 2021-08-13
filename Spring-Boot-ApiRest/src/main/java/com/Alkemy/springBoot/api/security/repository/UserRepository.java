@@ -1,17 +1,17 @@
 package com.Alkemy.springBoot.api.security.repository;
 
-import com.Alkemy.springBoot.api.security.model.User;
+import com.Alkemy.springBoot.api.security.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository <User,Long>{
+public interface UserRepository extends JpaRepository <Usuario,Long>{
 
-    Optional<User> findByFirstName(String firstName);
+    Optional<Usuario> findByUserName(String userName);
 
-    boolean existsByFirstName(String firstName);
+    boolean existsByUserName(String userName);
 
     boolean existsByEmail(String email);
 

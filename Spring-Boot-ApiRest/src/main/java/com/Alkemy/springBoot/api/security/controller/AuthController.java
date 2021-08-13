@@ -1,14 +1,14 @@
 package com.Alkemy.springBoot.api.security.controller;
 
 
-import com.Alkemy.springBoot.api.security.JwtProvider;
+import com.Alkemy.springBoot.api.security.jwt.JwtProvider;
 
 import com.Alkemy.springBoot.api.security.dto.JwtDto;
 import com.Alkemy.springBoot.api.security.dto.NewUser;
 import com.Alkemy.springBoot.api.security.dto.UserLogin;
 import com.Alkemy.springBoot.api.security.enums.ERole;
 import com.Alkemy.springBoot.api.security.model.Role;
-import com.Alkemy.springBoot.api.security.model.User;
+import com.Alkemy.springBoot.api.security.model.Usuario;
 import com.Alkemy.springBoot.api.security.service.RoleService;
 import com.Alkemy.springBoot.api.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,19 +47,22 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
 
+
+
+
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody NewUser newUser , BindingResult bindingResult){
 
         if (bindingResult.hasErrors()){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Campos erroneos.");
         }
-        if (userService.existsByFirstName(newUser.getFirstName())){
+        if (userService.existsByUserName(newUser.getUserName())){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El nombre ya existe");
         }
         if (userService.existsByEmail(newUser.getEmail())){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El email ya existe");
         }
-        User user = new User(newUser.getFirstName(),newUser.getLastName(),
+        Usuario user = new Usuario(newUser.getName(),newUser.getUserName(),
                 newUser.getEmail(),passwordEncoder.encode(newUser.getPassword()));
 
         Set<Role> roles = new HashSet<>();
@@ -72,14 +75,17 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Usuario creado");
     }
 
+
+
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody UserLogin userLogin,BindingResult bindingResult){
 
         if (bindingResult.hasErrors()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error en dato de algun campo.");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error en dato de algún campo.");
         }
         Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(userLogin.getFirstName(),userLogin.getPassword()));
+                .authenticate(new UsernamePasswordAuthenticationToken(userLogin.getUserName(),userLogin.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtProvider.generateToken(authentication);

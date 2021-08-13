@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 public class UserLogin {
 
     @NotBlank
-    private String firstName;
+    private String userName;
 
     @NotBlank
     private String password;

@@ -1,5 +1,7 @@
 package com.Alkemy.springBoot.api.security;
 
+import com.Alkemy.springBoot.api.security.jwt.JwtEntryPoint;
+import com.Alkemy.springBoot.api.security.jwt.JwtFilter;
 import com.Alkemy.springBoot.api.security.service.UserDetailServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

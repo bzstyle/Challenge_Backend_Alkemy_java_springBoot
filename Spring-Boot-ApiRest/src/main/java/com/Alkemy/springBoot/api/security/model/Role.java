@@ -1,43 +1,47 @@
 package com.Alkemy.springBoot.api.security.model;
 
 import com.Alkemy.springBoot.api.security.enums.ERole;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
+import javax.validation.constraints.NotNull;
 
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter @Getter
-@SQLDelete(sql = "UPDATE Roles SET deleted=true WHERE id = ?")
-@Where(clause = "deleted = false")
 @Entity
 @Table(name = "roles")
-public class Role implements Serializable {
+public class Role  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-
-    private String description;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date edited;
-
-    private Boolean deleted = Boolean.FALSE;
-
+    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(length = 20)
     private ERole roleName;
+
+    public Role() {
+    }
+
+    public Role( ERole roleName) {
+
+        this.roleName = roleName;
+    }
+
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ERole getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(ERole roleName) {
+        this.roleName = roleName;
+    }
 }
+

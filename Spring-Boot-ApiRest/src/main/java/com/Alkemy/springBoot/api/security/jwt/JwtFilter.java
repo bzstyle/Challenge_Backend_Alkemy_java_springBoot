@@ -1,4 +1,4 @@
-package com.Alkemy.springBoot.api.security;
+package com.Alkemy.springBoot.api.security.jwt;
 
 //Se ejecuta en cada peticion y por medio de jwtPovider si es valido permite el acceso.
 
@@ -34,7 +34,7 @@ public class JwtFilter extends OncePerRequestFilter {
             String token = getToken(request);
             if (token != null && jwtProvider.validateToken(token)){
 
-                String userName = jwtProvider.getFirstNameFromToken(token);
+                String userName = jwtProvider.getUserNameFromToken(token);
                 UserDetails userDetails = userDetailServiceImp.loadUserByUsername(userName);
 
                 UsernamePasswordAuthenticationToken auth =

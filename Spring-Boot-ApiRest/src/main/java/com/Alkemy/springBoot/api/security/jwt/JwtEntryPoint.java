@@ -1,4 +1,4 @@
-package com.Alkemy.springBoot.api.security;
+package com.Alkemy.springBoot.api.security.jwt;
 
 //Comprueba si hay un token valido sino devuelve respuesta 401
 

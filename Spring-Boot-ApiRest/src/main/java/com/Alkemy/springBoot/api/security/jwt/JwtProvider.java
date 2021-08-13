@@ -1,4 +1,4 @@
-package com.Alkemy.springBoot.api.security;
+package com.Alkemy.springBoot.api.security.jwt;
 
 //Genera token , valida que no este mal formado ni expirado.
 
@@ -33,7 +33,7 @@ public class JwtProvider {
                 .signWith(SignatureAlgorithm.HS512,secret).compact();
     }
 
-    public String getFirstNameFromToken(String token){
+    public String getUserNameFromToken(String token){
         return Jwts.parser().setSigningKey(secret).parseClaimsJwt(token).getBody().getSubject();
     }
 
