@@ -1,19 +1,11 @@
 package com.Alkemy.springBoot.api.security.model;
 
-import lombok.*;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.*;
 
 
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Setter @Getter
 //@SQLDelete(sql = "UPDATE users SET deleted=true WHERE id=?")
 //@Where(clause = "deleted = false")
 @Entity(name = "users")
@@ -28,7 +20,7 @@ public class Usuario {
     private String name;
 
     @NotNull(message = "The last name is required.")
-    @Column(name = "last_name" ,nullable = false)
+    @Column(name = "user_name" ,nullable = false)
     private String userName;
 
     @NotNull(message = "The email is required.")
@@ -54,9 +46,6 @@ public class Usuario {
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
-//    @Column(name = "edit_date")
-//    @Temporal(TemporalType.TIMESTAMP)
-//    private Date edited;
 
 //    private Boolean deleted = Boolean.FALSE;
 
