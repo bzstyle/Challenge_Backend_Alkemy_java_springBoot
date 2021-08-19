@@ -28,6 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     JwtEntryPoint jwtEntryPoint;
 
+
+
     @Bean
     public JwtFilter jwtFilter(){
         return new JwtFilter();
@@ -60,6 +62,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/auth/**").permitAll()
+                .and().authorizeRequests()
+                .antMatchers("/api/characters").hasAnyRole("USER")
+                .and().authorizeRequests()
+                .antMatchers("/api/movies").hasAnyRole("USER")
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
@@ -67,7 +73,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
-
-
     }
+
+
 }
