@@ -42,9 +42,9 @@ public class Usuario {
     private Set<Role> roles = new HashSet<>();
 
 
-    @Column(name = "create_date" ,updatable = false ,nullable = false )
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created;
+//    @Column(name = "create_date" ,updatable = false ,nullable = false )
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date created;
 
 
 //    private Boolean deleted = Boolean.FALSE;
@@ -110,11 +110,11 @@ public class Usuario {
         this.roles = roles;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
+//    public Date getCreated() {
+//        return created;
+//    }
+//
+//    public void setCreated(Date created) {
+//        this.created = created;
+//    }
 }
