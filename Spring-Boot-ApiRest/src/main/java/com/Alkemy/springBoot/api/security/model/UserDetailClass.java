@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
 
 public class UserDetailClass implements UserDetails {
 
-    private String firstName;
+    private String name;
 
-    private String lastName;
+    private String userName;
 
     private String email;
 
@@ -22,10 +22,10 @@ public class UserDetailClass implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailClass(String firstName, String lastName, String email, String password,
+    public UserDetailClass(String name, String userName, String email, String password,
                            Collection<? extends GrantedAuthority> authorities) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
+        this.userName = userName;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -36,7 +36,7 @@ public class UserDetailClass implements UserDetails {
         List<GrantedAuthority> authorities = user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.
                 getRoleName().name())).collect(Collectors.toList());
 
-        return new UserDetailClass(user.getFirstName(), user.getLastName(),
+        return new UserDetailClass(user.getName(), user.getUserName(),
                 user.getEmail(), user.getPassword(), authorities);
     }
 
@@ -52,7 +52,7 @@ public class UserDetailClass implements UserDetails {
 
     @Override
     public String getUsername() {
-        return firstName;
+        return userName;
     }
 
     @Override
